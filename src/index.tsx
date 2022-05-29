@@ -6,9 +6,7 @@ import {
   useState,
 } from "react";
 
-type FilteredIframeHTMLAttributes = Omit<IframeHTMLAttributes<any>, "style">;
-
-interface Props extends FilteredIframeHTMLAttributes {
+interface Props extends IframeHTMLAttributes<any> {
   /** React element that will be rendered when the iframe is loading. */
   skeleton?: ReactElement;
 }
@@ -28,7 +26,7 @@ const LoadingIframe: FunctionComponent<Props> = (props) => {
       {iframeLoading && skeleton}
       <iframe
         {...props}
-        style={{ display: iframeLoading ? "hidden" : undefined }}
+        className={`${iframeLoading && "hidden"} inherit w-full h-full`}
         onLoad={() => {
           setIframeLoading(false);
         }}
