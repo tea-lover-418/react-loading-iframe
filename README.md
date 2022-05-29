@@ -4,8 +4,7 @@ Show a skeleton on a loading iframe to smooth over the UX.
 Iframes can take a while to respond, and until they do your users see a blank screen.
 Using react-loading-iframe you can set a nice skeleton until the src page responds.
 
-Example video:
-...
+https://user-images.githubusercontent.com/16014608/170888262-90c5e4ee-ccb6-46ea-a75d-05cd21b6232b.mov
 
 ### Usage
 
