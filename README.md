@@ -9,7 +9,19 @@ Example video:
 
 ### Usage
 
+Install with npm or yarn!
+
 ```
+npm i react-loading-iframe
+yarn add react-loading-iframe
+```
+
+Include in your project.
+Pass a skeleton as prop to LoadingIframe, and it will be rendered until the iframe is ready.
+
+```
+import LoadingIframe from 'react-loading-iframe';
+
 const Skeleton = () => {
   return <div>Cool loading screen</div>;
 };
@@ -26,11 +38,15 @@ export const BasicExample = () => {
 };
 ```
 
-Pass a skeleton as prop to LoadingIframe, and it will be rendered until the iframe is ready.
-
-### Props:
+### Props
 
 LoadingIframe carries over all props from HTML iframes, except `style` as it is used internally.
 Additional props:
 
 - `skeleton`: ReactElement. When missing this will throw a console warning as you would be better off using a regular iframe.
+
+### Contributing & Roadmap
+
+Contributions are open.
+
+In the future I'd like to add a functionality where you can search the element tree of an iframe for an element and optionally show a different skeleton if an element is not found. This can be used to overwrite loading screens inside of an iframe. If you have any suggestions or possible implementations please share them!
