@@ -12,12 +12,12 @@ interface Props extends IframeHTMLAttributes<any> {
 }
 
 const LoadingIframe: FunctionComponent<Props> = (props) => {
-  const { skeleton, className } = props;
+  const { skeleton, className, ...iframeProps } = props;
   const [iframeLoading, setIframeLoading] = useState(true);
 
   if (!skeleton) {
     console.warn(
-      "react-loading-iframe: Rendered without skeleton, consider using a html iframe"
+      "react-loading-iframe: Rendered without skeleton, consider using an html iframe"
     );
   }
 
@@ -25,8 +25,12 @@ const LoadingIframe: FunctionComponent<Props> = (props) => {
     <div className={className}>
       {iframeLoading && skeleton}
       <iframe
-        {...props}
-        className={`${iframeLoading && "hidden"} inherit w-full h-full`}
+        {...iframeProps}
+        style={{
+          display: iframeLoading ? "none" : "block",
+          height: "100%",
+          width: "100%",
+        }}
         onLoad={() => {
           setIframeLoading(false);
         }}
