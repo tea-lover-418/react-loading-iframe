@@ -1,6 +1,6 @@
 {
   "name": "react-loading-iframe",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "",
   "source": "src/index.tsx",
   "main": "dist/main.js",

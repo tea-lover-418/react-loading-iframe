@@ -1,5 +1,6 @@
 import * as React from "react";
 import {
+  Fragment,
   FunctionComponent,
   IframeHTMLAttributes,
   ReactElement,
@@ -11,6 +12,7 @@ interface Props extends IframeHTMLAttributes<any> {
   skeleton?: ReactElement;
 }
 
+/** An iframe that takes a skeleton as a prop and renders the skeleton until the iframe is ready */
 const LoadingIframe: FunctionComponent<Props> = (props) => {
   const { skeleton, className, ...iframeProps } = props;
   const [iframeLoading, setIframeLoading] = useState(true);
@@ -22,9 +24,10 @@ const LoadingIframe: FunctionComponent<Props> = (props) => {
   }
 
   return (
-    <div className={className}>
+    <Fragment>
       {iframeLoading && skeleton}
       <iframe
+        className={className}
         {...iframeProps}
         style={{
           display: iframeLoading ? "none" : "block",
@@ -35,7 +38,7 @@ const LoadingIframe: FunctionComponent<Props> = (props) => {
           setIframeLoading(false);
         }}
       />
-    </div>
+    </Fragment>
   );
 };
 
