@@ -1,3 +1,6 @@
+> [!WARNING]  
+> This project is no longer maintained.
+
 # React Loading Iframe
 
 Show a skeleton on a loading iframe to smooth over the UX.
